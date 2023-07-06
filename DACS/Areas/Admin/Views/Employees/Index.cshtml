@@ -1,0 +1,99 @@
+﻿@model IEnumerable<DACS.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Trang quản lý nhân viên</h2>
+
+<p>
+    @Html.ActionLink("Đăng ký thêm nhân viên", "Create")
+</p>
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Position.Position1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imageEmployee)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Position.Position1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sex)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.imageEmployee)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idNv }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idNv }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idNv })
+        </td>
+    </tr>
+}
+
+</table>*@
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel panel-heading">
+                    @*<strong>@item.NameProduct</strong>*@
+                    @*<div class="pull-right">
+
+                        </div>*@
+                </div>
+                <div class="panel-body">
+                    <p><strong>Mã nhân viên: </strong>@item.idNv</p>
+                    <p><strong>Tên nhân viên: </strong>@item.EmployeeName</p>
+                    <p><strong>Vị trí: </strong>@item.Position.Position1</p>
+                    <img style="align-self:center;" alt="@item.EmployeeName"
+                         src="~/Content/images/@item.imageEmployee" width="125" height="150" />
+                </div>
+                <div class="panel-footer clearfix">
+                    <div class="pull-right">
+                        @Html.ActionLink("Thông tin", "Details", "Employees", new { id = item.idNv }, new
+                        {
+                        @class = "btn btn-default"
+                        })
+                        @Html.ActionLink("Xóa", "Delete", "Employees", new { id = item.idNv }, new
+                        {
+                            @class =
+                        "btn btn-success"
+                        })
+                        @Html.ActionLink("Sửa", "Edit", "Employees", new { id = item.idNv }, new
+                        {
+                            @class =
+                        "btn btn-success"
+                        })
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

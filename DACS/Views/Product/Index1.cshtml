@@ -1,0 +1,41 @@
+﻿@*@model IEnumerable<DACS.Models.Product>*@
+@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.PagedList<DACS.Models.Product>
+    
+<div class="main">
+    <div class="content">
+        <div class="section group" style="width:100%;display:flex;flex-direction:row;flex-wrap:wrap">
+            @foreach (var item in Model)
+            {
+                <div class="grid_1_of_4 images_1_of_4" style="width:20%">
+                    <a href="Index.cshtml"></a>
+                    <div>
+                        <h2>@item.NameProduct</h2>
+                    </div>
+                    <div>
+                        <a href="@Url.Action("Details","Product", new {id =item.IdProduct})"><img src="~/Content/images/@item.ImageProduct" alt="" style="width:50%;height:100px" /></a>
+                    </div>
+                    <div class="price-details">
+                        <div class="price-number">
+                            <p><span class="rupees">@item.Price VNĐ</span></p>
+                        </div>
+                        <div class="add-cart">
+                            @using (Html.BeginForm("AddToCart", "ShoppingCart", new { id = item.IdProduct }))
+                            {
+                                <div class="button"><span><a href="@Url.Action("AddToCart","ShoppingCart", new {Id = item.IdProduct})">Thêm vào giỏ hàng</a></span></div>
+                            }
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+Trang:@(Model.PageCount< Model.PageNumber ? 0: Model.PageNumber)/@Model.PageCount
+<div class="page" style="display:flex;justify-content: space-evenly;flex-wrap: nowrap;">
+    @Html.PagedListPager(Model, Page => Url.Action("Index1", new { Page = Page }))
+</div>
+

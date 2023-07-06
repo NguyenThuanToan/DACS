@@ -1,0 +1,71 @@
+﻿@model DACS.Models.task
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Thông tin chi tiết</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Employee.EmployeeName)*@
+            Mã nhân viên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.idNv)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Employee.EmployeeName)*@
+            Tên nhân viên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.EmployeeName)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Position.Position1)*@
+            Vai trò
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position.Position1)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.TaskDetails)*@
+            Nhiệm vụ chính
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaskDetails)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.TaskDetails)*@
+            Ngày thực hiện
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateofduty)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.TaskDetails)*@
+            Tiến trình
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.process)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.EmployeeName }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>

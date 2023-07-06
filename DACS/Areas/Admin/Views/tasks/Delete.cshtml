@@ -1,0 +1,62 @@
+﻿@model DACS.Models.task
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<h3>Bạn đã hoàn thành nhiệm vụ được giao ?</h3>
+<div>
+    <h4>Nhiệm vụ</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên nhân viên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.EmployeeName)
+        </dd>
+
+        <dt>
+            Vai trò
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position.Position1)
+        </dd>
+
+        <dt>
+            Mô cả công việc
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaskDetails)
+        </dd>
+
+        <dt>
+            Ngày thực hiện
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateofduty)
+        </dd>
+
+        <dt>
+            Tiến trình
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.process)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,7 @@
+﻿@model IEnumerable<DACS.Models.Position>
+    <ul>
+        @foreach(var item in Model)
+            {
+                <li>@Html.ActionLink(item.Position1, "GetEmployeeByCategory/" +item.IdPos,"Employees")</li>
+            }
+    </ul>

@@ -1,0 +1,23 @@
+﻿@model DACS.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Thông tin nhân viên</h2>
+
+<div class="product-details">
+    <img src="~/Content/images/@Model.imageEmployee" />
+    <div class="desc span_3_of_2">
+        <p style="font-weight: bold; color: red">Mã nhân viên:</p><h2>@Model.idNv </h2>
+        <p style="font-weight: bold; color: red">Tên nhân viên:</p><h2>@Model.EmployeeName </h2>
+        <p style="font-weight: bold; color: red">Giới tính:</p><h2>@Model.Sex </h2>
+        <p style="font-weight: bold; color: red">Chức vụ:</p><h2>@Model.Position.Position1 </h2>
+        <p style="font-weight: bold; color: red">SĐT:</p><h2>@Model.NumberPhone</h2>
+    </div>
+    <div class="clear"></div>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.idNv }) |
+    @Html.ActionLink("Quay lai", "Index")
+</p>

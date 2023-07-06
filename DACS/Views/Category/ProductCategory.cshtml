@@ -1,0 +1,44 @@
+﻿@*@model List<DACS.Models.Product>*@
+@model DACS.Models.Product_Category
+@{
+    ViewBag.Title = "ProductCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="main">
+    <div class="content">
+        <div class="content_top">
+            <div class="heading">
+                <h3>New Products</h3>
+            </div>
+            <div class="see">
+                <p><a href="#">See all Products</a></p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="section group" style="width:100%;display:flex;flex-direction:row;flex-wrap:wrap">
+            @foreach (var item in Model.ListProduct)
+            {
+                <div class="grid_1_of_4 images_1_of_4" style="width:20%">
+                    @*<a href="Index.cshtml"></a>*@
+                    <div>
+                        <h2>@item.NameProduct</h2>
+                    </div>
+                    <div>
+                        <a href="@Url.Action("Details","Product", new {id =item.IdProduct}, null)"><img src="~/Content/images/@item.ImageProduct" alt="" style="width:50%;height:100px" /></a>
+                    </div>
+                    <div class="price-details">
+                        <div class="price-number">
+                            <p><span class="rupees">@item.Price.000VNĐ</span></p>
+                        </div>
+                        <div class="add-cart">
+                            <h4><a href="preview.html">Add to Cart</a></h4>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+﻿@model DACS.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Chi tiết sản phẩm</h2>
+
+<div class="product-details">
+    <img src="~/Content/images/@Model.ImageProduct" />
+    <div class="desc span_3_of_2">
+        <p style="font-weight: bold; color: red">Tên sản phẩm:</p><h2>@Model.NameProduct </h2>
+        <p style="font-weight: bold; color: red">Thể loại:</p><h2>@Model.Category.NameCategory </h2>
+        <p style="font-weight: bold; color: red">Mô tả:</p><h2>@Model.DescriptionProduct</h2>
+        <div class="price">
+            <p>Giá: <span>@Model.Price VNĐ</span></p>
+        </div>
+
+    </div>
+    <div class="clear"></div>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.IdProduct }) |
+    @Html.ActionLink("Quay lai", "Index")
+</p>

@@ -1,0 +1,8 @@
+﻿@model IEnumerable<DACS.Models.Category>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@Html.ActionLink(item.NameCategory, "GetProductByCategory/" + item.IdCategory, "Products")</li>
+    }
+</ul>
